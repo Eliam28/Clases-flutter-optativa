@@ -1,130 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:matus_flutter/calculadora2/ActionButton2.dart';
+import 'package:matus_flutter/calculadora2/NumberInput2.dart';
+import 'package:matus_flutter/calculadora2/input2.dart';
 
 void main() {
   runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
+
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    TextEditingController inputIzq = TextEditingController();
+    TextEditingController inputDer = TextEditingController();
+    TextEditingController inputRespuesta = TextEditingController();
+
     return MaterialApp(
       home: Scaffold(
 
        appBar: AppBar(
-        title: const Text("Mi primera app"),
+        title: const Text("Calculadora 2"),
         backgroundColor: Colors.deepPurpleAccent,
         foregroundColor: Colors.white,
         centerTitle: true,
        ),
 
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            
-            SizedBox(height: 20),
 
-            const Text(
-              "Formulario de alumnos",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20
-              ),
+            Row(
+              children: [
+                Expanded(child: Input2(input: inputIzq, labelText: "Numero 1",)),
+                const SizedBox(width: 16,),
+                Expanded(child: Input2(input: inputDer, labelText: "Numero 2",))
+              ],
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 26,),
 
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-
-              child: Column(
-                children: [
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: "Escriba su nombre",
-                        labelText: "Nombre",
-                        border: OutlineInputBorder()
-                      ),
-                    ),
-
-                    SizedBox(height: 20),
-
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: "Escriba su apellido",
-                        labelText: "Apellido",
-                        border: OutlineInputBorder()
-                      ),
-                    ),
-
-                    const SizedBox(height: 40),
-
-                    ElevatedButton(
-                      onPressed: () => {}, 
-                      child: Text("Guardar"),
-
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurpleAccent,
-                        foregroundColor: Colors.white,
-                        minimumSize: const Size(200, 50)
-                      ),
-                    ),
-                ],
-              ),
+            Center(
+              child: Input2(input: inputRespuesta, labelText: "Respuesta", readOnly: true,),
             ),
 
-            SizedBox(height: 35),
+            const SizedBox(height: 26,),
 
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-
-                  IconButton(
-                    onPressed: () => {}, 
-                    icon: const Icon(Icons.favorite),
-                    color: Colors.red,
-                    iconSize: 50,
-                  ),
-
-                  IconButton(
-                    onPressed: () => {}, 
-                    icon: const Icon(Icons.add),
-                    color: Colors.green,
-                    iconSize: 50,
-                  ),
-                  
-                  IconButton(
-                    onPressed: () => {}, 
-                    icon: const Icon(Icons.home),
-                    color: Colors.deepPurpleAccent,
-                    iconSize: 50,
-                  ),
-
-                ],
-              ),
+            Row(
+              children: [
+                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "1")),
+                const SizedBox(width: 16,),
+                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "2")),
+                const SizedBox(width: 16,),
+                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "3")),
+              ],
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 26,),
 
-            const Text(
-              "Esta es mi imagen",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-
-            SizedBox(height: 20),
-
-            Image.network(
-              "https://images.cults3d.com/AWtDvIxrgVDuhgK4jJkMo9EnguM=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/14252721/illustration-file/f1543ab6-c3c2-42f7-ac0d-57654a4b0e01/Xavier's-School-logo-2.png",
-              height: 300,
-              width: 300,
-            )
+            Center(child: Actionbutton2(inputIzq: inputIzq, inputDer: inputDer, inputRespuesta: inputRespuesta, labelAction: "CLEAR"),)
           ],
         ),
       ),

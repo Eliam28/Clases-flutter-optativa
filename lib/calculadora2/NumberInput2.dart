@@ -6,7 +6,10 @@ class Numberinput2 extends StatefulWidget{
   final TextEditingController inputDer;
   final String labelNumber;
 
-  const Numberinput2({super.key, required this.inputIzq, required this.inputDer, required this.labelNumber});
+  final FocusNode focusIzq;
+  final FocusNode focusDer;
+
+  const Numberinput2({super.key, required this.inputIzq, required this.inputDer, required this.labelNumber, required this.focusIzq, required this.focusDer});
 
   @override
   State<Numberinput2> createState() => _NumberInput2();
@@ -15,8 +18,12 @@ class Numberinput2 extends StatefulWidget{
 class _NumberInput2 extends State<Numberinput2>{
 
   void setNumber(){
-    widget.inputIzq.text += widget.labelNumber;
-    //Hacer el manejo de poner numeros complejos al escribir
+    if (widget.focusIzq.hasFocus){
+      widget.inputIzq.text += widget.labelNumber;
+
+    } else if(widget.focusDer.hasFocus){
+      widget.inputDer.text += widget.labelNumber;
+    }
   }
 
   @override

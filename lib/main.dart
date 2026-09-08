@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:matus_flutter/calculadora2/ActionButton2.dart';
 import 'package:matus_flutter/calculadora2/NumberInput2.dart';
 import 'package:matus_flutter/calculadora2/input2.dart';
+import 'package:matus_flutter/classProps/ActionButtonProps.dart';
+import 'package:matus_flutter/classProps/NumberProps.dart';
 
 void main() {
   runApp(const MainApp());
@@ -19,6 +21,9 @@ class MainApp extends StatelessWidget {
     TextEditingController inputRespuesta = TextEditingController();
     FocusNode focusIzq = FocusNode();
     FocusNode focusDer = FocusNode();
+
+    Actionbuttonprops actionProps = Actionbuttonprops(inputIzq: inputIzq, inputDer: inputDer, inputRespuesta: inputRespuesta);
+    Numberprops numProps = Numberprops(focusDer: focusDer, focusIzq: focusIzq, inputDer: inputDer, inputIzq: inputIzq);
 
     return MaterialApp(
       home: Scaffold(
@@ -53,11 +58,11 @@ class MainApp extends StatelessWidget {
 
             Row(
               children: [
-                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "1", focusIzq: focusIzq, focusDer: focusDer,)),
+                Expanded(child: Numberinput2(props: numProps, labelNumber: "1",)),
                 const SizedBox(width: 16,),
-                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "2", focusIzq: focusIzq, focusDer: focusDer,)),
+                Expanded(child: Numberinput2(props: numProps, labelNumber: "2",)),
                 const SizedBox(width: 16,),
-                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "3", focusIzq: focusIzq, focusDer: focusDer,)),
+                Expanded(child: Numberinput2(props: numProps, labelNumber: "3",)),
               ],
             ),
 
@@ -65,11 +70,11 @@ class MainApp extends StatelessWidget {
 
             Row(
               children: [
-                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "4", focusIzq: focusIzq, focusDer: focusDer,)),
+                Expanded(child: Numberinput2(props: numProps, labelNumber: "4",)),
                 const SizedBox(width: 16,),
-                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "5", focusIzq: focusIzq, focusDer: focusDer,)),
+                Expanded(child: Numberinput2(props: numProps, labelNumber: "5",)),
                 const SizedBox(width: 16,),
-                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "6", focusIzq: focusIzq, focusDer: focusDer,)),
+                Expanded(child: Numberinput2(props: numProps, labelNumber: "6",)),
               ],
             ),
 
@@ -77,36 +82,36 @@ class MainApp extends StatelessWidget {
 
             Row(
               children: [
-                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "7", focusIzq: focusIzq, focusDer: focusDer,)),
+                Expanded(child: Numberinput2(props: numProps, labelNumber: "7",)),
                 const SizedBox(width: 16,),
-                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "8", focusIzq: focusIzq, focusDer: focusDer,)),
+                Expanded(child: Numberinput2(props: numProps, labelNumber: "8",)),
                 const SizedBox(width: 16,),
-                Expanded(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "9", focusIzq: focusIzq, focusDer: focusDer,)),
+                Expanded(child: Numberinput2(props: numProps, labelNumber: "9",)),
               ],
             ),
 
             const SizedBox(height: 26,),
 
-            Center(child: Numberinput2(inputIzq: inputIzq, inputDer: inputDer, labelNumber: "0", focusIzq: focusIzq, focusDer: focusDer,),),
+            Center(child: Numberinput2(props: numProps, labelNumber: "0",),),
 
             const SizedBox(height: 26,),
 
             Row(
               children: [
-                Expanded(child: Actionbutton2(inputIzq: inputIzq, inputDer: inputDer, inputRespuesta: inputRespuesta, labelAction: "+")),
+                Expanded(child: Actionbutton2(props: actionProps, labelAction: "+")),
                 const SizedBox(width: 16,),
-                Expanded(child: Actionbutton2(inputIzq: inputIzq, inputDer: inputDer, inputRespuesta: inputRespuesta, labelAction: "-")),
+                Expanded(child: Actionbutton2(props: actionProps, labelAction: "-")),
                 const SizedBox(width: 16,),
-                Expanded(child: Actionbutton2(inputIzq: inputIzq, inputDer: inputDer, inputRespuesta: inputRespuesta, labelAction: "*")),
+                Expanded(child: Actionbutton2(props: actionProps, labelAction: "*")),
                 const SizedBox(width: 16,),
-                Expanded(child: Actionbutton2(inputIzq: inputIzq, inputDer: inputDer, inputRespuesta: inputRespuesta, labelAction: "/")),
+                Expanded(child: Actionbutton2(props: actionProps, labelAction: "/")),
               ],
             ),
 
             const SizedBox(height: 26,),
 
 
-            Center(child: Actionbutton2(inputIzq: inputIzq, inputDer: inputDer, inputRespuesta: inputRespuesta, labelAction: "CLEAR"),)
+            Center(child: Actionbutton2(props: actionProps, labelAction: "CLEAR"),)
           ],
         ),
       ),

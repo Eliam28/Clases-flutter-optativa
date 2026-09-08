@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:matus_flutter/classProps/NumberProps.dart';
 
 class Numberinput2 extends StatefulWidget{
 
-  final TextEditingController inputIzq;
-  final TextEditingController inputDer;
+  final Numberprops props;
   final String labelNumber;
 
-  final FocusNode focusIzq;
-  final FocusNode focusDer;
-
-  const Numberinput2({super.key, required this.inputIzq, required this.inputDer, required this.labelNumber, required this.focusIzq, required this.focusDer});
+  const Numberinput2({super.key, required this.props , required this.labelNumber});
 
   @override
   State<Numberinput2> createState() => _NumberInput2();
@@ -18,11 +15,11 @@ class Numberinput2 extends StatefulWidget{
 class _NumberInput2 extends State<Numberinput2>{
 
   void setNumber(){
-    if (widget.focusIzq.hasFocus){
-      widget.inputIzq.text += widget.labelNumber;
+    if (widget.props.focusIzq.hasFocus){
+      widget.props.inputIzq.text += widget.labelNumber;
 
-    } else if(widget.focusDer.hasFocus){
-      widget.inputDer.text += widget.labelNumber;
+    } else if(widget.props.focusDer.hasFocus){
+      widget.props.inputDer.text += widget.labelNumber;
     }
   }
 

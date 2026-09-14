@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:matus_flutter/screens/counterScreen.dart';
 import 'package:matus_flutter/screens/formScreen.dart';
+import 'package:matus_flutter/themes/app_theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,6 +13,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: AppTheme.themedata,
       home:homePage(),
       routes: {
         "/formulario" : (context) => const Formscreen(),
@@ -29,9 +31,6 @@ class homePage extends StatelessWidget {
 
         appBar: AppBar(
           title: Text("Menu de navegación"),
-          backgroundColor: Colors.greenAccent,
-          foregroundColor: Colors.white,
-          centerTitle: true,
         ),
 
         body: SingleChildScrollView(

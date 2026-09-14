@@ -21,5 +21,5 @@ class AppTheme {
       )
     );
   }
-  static final buttomPeligro = ThemeBotonPeligro;
+  static final ButtonStyle buttomPeligro = ThemeBotonPeligro.estilo;
 }

@@ -12,123 +12,117 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
 
-       appBar: AppBar(
-        title: const Text("Mi primera app"),
-        backgroundColor: Colors.deepPurpleAccent,
-        foregroundColor: Colors.white,
-        centerTitle: true,
-       ),
-
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            
-            SizedBox(height: 20),
-
-            const Text(
-              "Formulario de alumnos",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20
-              ),
-            ),
-
-            SizedBox(height: 20),
-
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-
-              child: Column(
-                children: [
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: "Escriba su nombre",
-                        labelText: "Nombre",
-                        border: OutlineInputBorder()
-                      ),
-                    ),
-
-                    SizedBox(height: 20),
-
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: "Escriba su apellido",
-                        labelText: "Apellido",
-                        border: OutlineInputBorder()
-                      ),
-                    ),
-
-                    const SizedBox(height: 40),
-
-                    ElevatedButton(
-                      onPressed: () => {}, 
-                      child: Text("Guardar"),
-
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurpleAccent,
-                        foregroundColor: Colors.white,
-                        minimumSize: const Size(200, 50)
-                      ),
-                    ),
-                ],
-              ),
-            ),
-
-            SizedBox(height: 35),
-
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-
-                  IconButton(
-                    onPressed: () => {}, 
-                    icon: const Icon(Icons.favorite),
-                    color: Colors.red,
-                    iconSize: 50,
-                  ),
-
-                  IconButton(
-                    onPressed: () => {}, 
-                    icon: const Icon(Icons.add),
-                    color: Colors.green,
-                    iconSize: 50,
-                  ),
-                  
-                  IconButton(
-                    onPressed: () => {}, 
-                    icon: const Icon(Icons.home),
-                    color: Colors.deepPurpleAccent,
-                    iconSize: 50,
-                  ),
-
-                ],
-              ),
-            ),
-
-            SizedBox(height: 20),
-
-            const Text(
-              "Esta es mi imagen",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-
-            SizedBox(height: 20),
-
-            Image.network(
-              "https://images.cults3d.com/AWtDvIxrgVDuhgK4jJkMo9EnguM=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/14252721/illustration-file/f1543ab6-c3c2-42f7-ac0d-57654a4b0e01/Xavier's-School-logo-2.png",
-              height: 300,
-              width: 300,
-            )
-          ],
+        appBar: AppBar(
+          title: Text("App de practica"),
+          backgroundColor: Colors.deepPurpleAccent,
+          foregroundColor: Colors.white,
+          centerTitle: true,
         ),
-      ),
-        
+
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+
+              Center(child: 
+                Text(
+                  "Formulario de la app",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 16),
+
+              TextField(
+                decoration: InputDecoration(
+                  label: Text("Nombre"),
+                  hint: Text("Escriba su nombre"),
+                  border: OutlineInputBorder()
+                ),
+              ),
+
+              SizedBox(height: 16),
+
+              TextField(
+                decoration: InputDecoration(
+                  label: Text("Apellido"),
+                  hint: Text("Escriba su apellido"),
+                  border: OutlineInputBorder()
+                ),
+              ),
+
+              SizedBox(height: 16),
+
+
+              ElevatedButton(
+                onPressed: () => {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Formulario guardado"),
+                      backgroundColor: Colors.green,
+                      duration: Duration(seconds: 3),
+                      behavior: SnackBarBehavior.floating,
+                    )
+                  )                  
+                }, 
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurpleAccent,
+                  foregroundColor: Colors.white,
+                  minimumSize: Size(200, 50)
+                ),
+                child: Text("Guardar"),
+              ),
+
+              SizedBox(height: 16),
+
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    
+                    IconButton(
+                      onPressed: null,
+                      icon: const Icon(Icons.access_time),
+                      color: Colors.red,
+                      iconSize: 50,
+                    ),
+
+                    IconButton(
+                      onPressed: null,
+                      icon: const Icon(Icons.abc_outlined),
+                      color: Colors.blue,
+                      iconSize: 50,
+                    ),
+
+                    IconButton(
+                      onPressed: null,
+                      icon: const Icon(Icons.access_alarm),
+                      color: Colors.green,
+                      iconSize: 50,
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              const Text("Esta encuesta es para"),
+
+              Image.network(
+                "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1920px-User_icon_2.svg.png?utm_source=es.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+                height: 200,
+                width: 200,
+              )
+
+            ],
+          ),
+        ),
+
+
       ),
     );
   }

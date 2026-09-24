@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:matus_flutter/screens/pantalla1.dart';
 import 'package:matus_flutter/widgets/MyBottomNavigatorBar.dart';
 
 class LoginScreen extends StatelessWidget {
